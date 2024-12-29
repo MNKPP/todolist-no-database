@@ -8,3 +8,11 @@ A simple todolist process without a database to practice my skills about a basic
 3. Read task from an object to html
 3. Delete task from an object
 4. Update task from an objects
+
+## Checklist
+- [ ] Create the input to add task
+- [ ] Create the add task system
+- [ ] Read the tasks in a html list
+- [ ] Create the delete task system
+- [ ] Create the update task system
+- [ ] Create the 404 pages
