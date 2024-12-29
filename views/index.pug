@@ -4,3 +4,6 @@ html
         title Todolist no database
     body
         h1 Todolist
+        form(method='POST' action='/add-task')
+            input(type='text' name='task')
+            button(type='submit') Send
