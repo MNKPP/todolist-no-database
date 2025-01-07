@@ -1,21 +1,30 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs').promises;
 
 const taskRouter = express.Router();
 
-taskRouter.post('/add-task', (req, res) => {
+taskRouter.post('/add-task', async (req, res) => {
     const body = req.body;
-    const jsonBodyParsed = JSON.stringify(body);
     const jsonFilePath = path.join(path.resolve(__dirname, "../"), "public", "data.json");
 
-
-    if (!fs.existsSync(jsonFilePath)) {
-        return res.sendStatus(400);
+    if (!body.task) {
+        res.redirect('/')
     }
 
     try {
-        fs.appendFileSync(jsonFilePath, jsonBodyParsed);
+        const fileContent = await fs.readFile(jsonFilePath);
+
+        const fileContentParsed = JSON.parse(fileContent);
+
+        const newData = {
+            id: fileContentParsed.tasks.length + 1,
+            title: body.task
+        }
+
+        fileContentParsed.tasks.push(newData)
+
+        await fs.writeFile(jsonFilePath, JSON.stringify(fileContentParsed, null, 4));
         res.redirect('/');
     } catch (err) {
         console.log(err)
