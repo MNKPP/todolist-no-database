@@ -9,6 +9,7 @@ taskRouter.post('/add-task', async (req, res) => {
     const jsonFilePath = path.join(path.resolve(__dirname, "../"), "public", "data.json");
 
     if (!body.task) {
+        // TODO : Possiblement le passer sur une route GET pour afficher les tâches
         res.redirect('/')
     }
 

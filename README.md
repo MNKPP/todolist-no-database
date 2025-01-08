@@ -11,8 +11,8 @@ A simple todolist process without a database to practice my skills about a basic
 
 ## Checklist
 - [X] Create the input to add task
-- [ ] Create the add task system
-- [ ] Read the tasks in a html list
+- [X] Create the add task system
+- [X] Read the tasks in a html list
 - [ ] Create the delete task system
 - [ ] Create the update task system
 - [ ] Create the 404 pages
