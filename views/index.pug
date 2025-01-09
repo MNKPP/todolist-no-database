@@ -8,4 +8,8 @@ html
             input(type='text' name='task')
             button(type='submit') Send
         each n in data
-            p=n.title
+            ul
+                li
+                    div
+                        input(type="checkbox" id=n.id)
+                        p=n.title
