@@ -13,3 +13,8 @@ html
                     div
                         input(type="checkbox" id=n.id)
                         p=n.title
+                        button(type='text' onclick=`deleteTask("${n.id}")`) X
+        script.
+            const deleteTask = async (id) => {
+                await fetch(`/delete-task/${id}`, {method: 'DELETE'})
+            }
