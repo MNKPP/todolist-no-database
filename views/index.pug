@@ -16,5 +16,14 @@ html
                         button(type='text' onclick=`deleteTask("${n.id}")`) X
         script.
             const deleteTask = async (id) => {
-                await fetch(`/delete-task/${id}`, {method: 'DELETE'})
+
+                try {
+                    const response = await fetch(`/delete-task/${id}`, {method: 'DELETE'});
+
+                    if (response.ok) {
+                        window.location.href = '/'
+                    }
+                } catch (error) {
+                    console.warn(error)
+                }
             }

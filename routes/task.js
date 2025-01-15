@@ -25,7 +25,9 @@ taskRouter.post('/add-task', async (req, res) => {
         fileContentParsed.push(newData)
 
         await fs.writeFile(jsonFilePath, JSON.stringify(fileContentParsed, null, 4));
-        res.redirect('/');
+
+        return res.redirect('/')
+
     } catch (err) {
         return res.status(400).send(err);
     }
@@ -48,6 +50,7 @@ taskRouter.delete('/delete-task/:id', async (req, res) => {
                 message: 'Task deleted successfully'
             }
         )
+
     } catch (err) {
         return res.status(400).send(err);
     }
